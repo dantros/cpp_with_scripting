@@ -16,3 +16,6 @@
 [submodule "third_party/lua_cmake"]
 	path = third_party/lua_cmake
 	url = https://github.com/dantros/lua_cmake.git
+[submodule "third_party/pocketpy"]
+	path = third_party/pocketpy
+	url = https://github.com/pocketpy/pocketpy.git
