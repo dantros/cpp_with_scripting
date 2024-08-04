@@ -10,3 +10,6 @@
 [submodule "third_party/json"]
 	path = third_party/json
 	url = https://github.com/nlohmann/json.git
+[submodule "third_party/ChaiScript"]
+	path = third_party/ChaiScript
+	url = https://github.com/ChaiScript/ChaiScript.git

@@ -4,6 +4,12 @@
 #include <whereami2cpp.h>
 #include <spdlog/spdlog.h>
 #include <nlohmann/json.hpp>
+#include <chaiscript/chaiscript.hpp>
+
+double function(int i, double j)
+{
+    return i * j;
+}
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +38,13 @@ int main(int argc, char *argv[])
 
     nlohmann::json jsonTest = nlohmann::json::parse(R"({"happy": true, "pi": 3.141})");
     std::cout << "jsonTest -> " << jsonTest.dump() << std::endl;
+
+    chaiscript::ChaiScript chai;
+    chai.add(chaiscript::fun(&function), "function");
+
+    double d = chai.eval<double>("function(3, 4.75);");
+
+    spdlog::info("chaiscript is working? -> function(3, 4.75) = {}", d);
 
     return 0;
 }

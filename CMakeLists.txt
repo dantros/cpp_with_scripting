@@ -5,6 +5,12 @@ project(cpp_console_app_project CXX)
 
 add_subdirectory("third_party/whereami2cpp")
 
+if (MSVC)
+    add_compile_options(/bigobj)
+else ()
+    add_compile_options(-Wa,-mbig-obj)
+endif ()
+
 add_executable(cpp_console_app "source/main.cpp")
 set_property(TARGET cpp_console_app PROPERTY CXX_STANDARD 20)
 target_include_directories(cpp_console_app PRIVATE
@@ -12,5 +18,6 @@ target_include_directories(cpp_console_app PRIVATE
     "third_party/whereami2cpp/source"
     "third_party/spdlog/include"
     "third_party/json/include"
+    "third_party/ChaiScript/include"
 )
 target_link_libraries(cpp_console_app PRIVATE whereami2cpp)
