@@ -1,10 +1,11 @@
-# C++ and Scripting examples
+# C++ and Scripting
 
 If you want to intergrate a scripting language into your C++ program, this may be a good reference. Current examples:
 
-- Chaiscript: [demo_chaiscript.cpp](demo_chaiscript.cpp)
-- Lua: [demo_lua.cpp](demo_lua.cpp)
-- Lua via Sol2: [demo_lua_sol.cpp](demo_lua_sol.cpp)
+- Chaiscript: [demo_chaiscript.cpp](source/demo_chaiscript.cpp)
+- Lua: [demo_lua.cpp](source/demo_lua.cpp)
+- Lua via Sol2: [demo_lua_sol.cpp](source/demo_lua_sol.cpp)
+- Pocketpy (Python-like): [demo_pocketpy.cpp](source/demo_pocketpy.cpp)
 
 After making a local clone, you need to initialize and update the git submodules by executing at the root of the repository:
 ```
