@@ -24,3 +24,15 @@ target_include_directories(demo_lua PRIVATE
     "third_party/lua_cmake/lua-5.4.7/src"
 )
 target_link_libraries(demo_lua PRIVATE lua_static)
+
+add_executable(demo_lua_sol "source/demo_lua_sol.cpp")
+set_property(TARGET demo_lua_sol PROPERTY CXX_STANDARD 20)
+target_include_directories(demo_lua_sol PRIVATE
+    "third_party/lua_cmake/lua-5.4.7/src"
+    "third_party/sol2"
+)
+target_link_libraries(demo_lua_sol PRIVATE lua_static)
+# Lua was built with C++
+target_compile_definitions(demo_lua_sol PRIVATE SOL_USING_CXX_LUA)
+# Enabling sol safeties
+target_compile_definitions(demo_lua_sol PRIVATE SOL_ALL_SAFETIES_ON)
