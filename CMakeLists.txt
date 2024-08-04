@@ -5,6 +5,7 @@ project(cpp_with_scripting_project CXX)
 
 add_subdirectory("third_party/whereami2cpp")
 add_subdirectory("third_party/lua_cmake")
+add_subdirectory("third_party/pocketpy")
 
 if (MSVC)
     add_compile_options(/bigobj)
@@ -36,3 +37,10 @@ target_link_libraries(demo_lua_sol PRIVATE lua_static)
 target_compile_definitions(demo_lua_sol PRIVATE SOL_USING_CXX_LUA)
 # Enabling sol safeties
 target_compile_definitions(demo_lua_sol PRIVATE SOL_ALL_SAFETIES_ON)
+
+add_executable(demo_pocketpy "source/demo_pocketpy.cpp")
+set_property(TARGET demo_pocketpy PROPERTY CXX_STANDARD 20)
+target_include_directories(demo_pocketpy PRIVATE
+    "third_party/pocketpy/include"
+)
+target_link_libraries(demo_pocketpy PRIVATE pocketpy)
