@@ -44,3 +44,32 @@ target_include_directories(demo_pocketpy PRIVATE
     "third_party/pocketpy/include"
 )
 target_link_libraries(demo_pocketpy PRIVATE pocketpy)
+
+add_executable(loading_lua_file "source/loading_lua_file.cpp")
+set_property(TARGET loading_lua_file PROPERTY CXX_STANDARD 20)
+target_include_directories(loading_lua_file PRIVATE
+    "third_party/argparse/include"
+    "third_party/lua_cmake/lua-5.4.7/src"
+    "third_party/sol2"
+)
+target_link_libraries(loading_lua_file PRIVATE lua_static)
+target_compile_definitions(loading_lua_file PRIVATE SOL_USING_CXX_LUA)
+target_compile_definitions(loading_lua_file PRIVATE SOL_ALL_SAFETIES_ON)
+
+install(
+    TARGETS
+        demo_chaiscript
+        demo_lua
+        demo_lua_sol
+        demo_pocketpy
+        loading_lua_file
+    DESTINATION
+        ${CMAKE_INSTALL_PREFIX}
+)
+
+install(
+    DIRECTORY
+        "assets"
+    DESTINATION
+        ${CMAKE_INSTALL_PREFIX}
+)

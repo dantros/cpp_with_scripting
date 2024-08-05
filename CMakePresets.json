@@ -14,7 +14,8 @@
             "binaryDir": "${sourceDir}/../build_cmake/${presetName}",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "Yes"
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "Yes",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/../install_cmake/${presetName}"
             }
         },
         {
@@ -22,23 +23,6 @@
             "inherits": "base",
             "hidden": false,
             "generator": "Ninja",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
-        },
-        {
-            "name": "ninja-debug",
-            "inherits": "base",
-            "hidden": false,
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
-        },
-        {
-            "name": "vs-release",
-            "inherits": "base",
-            "hidden": false,
-            "generator": "Visual Studio 17 2022",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
