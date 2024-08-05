@@ -13,7 +13,7 @@ int main() {
     // Something slightly more interesting
     lua.open_libraries(sol::lib::base);
 
-	const auto& my_script = R"(
+	const std::string my_script = R"(
         local a,b,c = ...
         print(a,b,c)
     )";
