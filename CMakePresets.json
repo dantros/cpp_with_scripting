@@ -11,11 +11,12 @@
             "description": "Default setting",
             "hidden": true,
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/../build_cmake/${presetName}",
+            "binaryDir": "${sourceDir}/../build/${presetName}",
+            "installDir": "${sourceDir}/../install/${presetName}",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "Yes",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/../install_cmake/${presetName}"
+                "CMAKE_CXX_COMPILER": "cl"
             }
         },
         {
@@ -28,13 +29,39 @@
             }
         },
         {
-            "name": "vs-debug",
+            "name": "ninja-debug",
             "inherits": "base",
             "hidden": false,
-            "generator": "Visual Studio 17 2022",
+            "generator": "Ninja",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
+        },
+        {
+            "name": "msbuild",
+            "inherits": "base",
+            "hidden": false,
+            "generator": "Visual Studio 17 2022"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "ninja-release",
+            "configurePreset": "ninja-release"
+        },
+        {
+            "name": "ninja-debug",
+            "configurePreset": "ninja-debug"
+        },
+        {
+            "name": "vs-release",
+            "configurePreset": "msbuild",
+            "configuration": "Release"
+        },
+        {
+            "name": "vs-debug",
+            "configurePreset": "msbuild",
+            "configuration": "Debug"
         }
     ]
 }
