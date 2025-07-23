@@ -3,8 +3,6 @@ set(CMAKE_LEGACY_CYGWIN_WIN32 OFF)
 
 project(cpp_with_scripting_project CXX)
 
-add_subdirectory("third_party/whereami2cpp")
-
 if (MSVC)
     add_compile_options(/bigobj)
 else ()
